@@ -33,7 +33,7 @@
     if (!data) return
     if ($(window).scrollTop() >= data.offsetTop - data.top) {
       if (!data.$clone) {
-        data.$clone = $el.clone().css({position: "fixed", top: data.top}).appendTo("body")
+        data.$clone = $el.clone().css({position: "fixed", top: data.top}).appendTo($el.attr('data-sticky-parent') || "body")
         $el.css("visibility", "hidden")
         onresize($el)
       }
